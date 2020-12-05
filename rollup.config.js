@@ -10,7 +10,11 @@ const production = !process.env.ROLLUP_WATCH;
 const preprocess = sveltePreprocess({
   sourceMap: !production,
   postcss: {
-    plugins: [require("tailwindcss"), require("autoprefixer")],
+    plugins: [
+      require("tailwindcss"),
+      require("autoprefixer"),
+      require("postcss-nesting")
+    ],
   },
 });
 
