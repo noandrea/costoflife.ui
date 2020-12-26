@@ -21,7 +21,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'costoflife-blue': '#C2AB3E',
+        'costoflife-blue': '#586736',
         'costoflife-light-blue': '#1DC7DA',
       }
     }

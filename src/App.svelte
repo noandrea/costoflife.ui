@@ -1,6 +1,6 @@
 <script>
   import Tailwindcss from "./Tailwindcss.svelte";
-  export let name;
+  import Calculator from "./Calculator.svelte";
 </script>
 
 <Tailwindcss />
@@ -27,6 +27,7 @@
     href="https://github.com/noandrea/costoflife-rs">
     github.com/noandrea/costoflife-rs
   </a>
+  <Calculator />
 
 </main>
 
