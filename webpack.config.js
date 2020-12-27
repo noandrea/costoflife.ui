@@ -1,5 +1,7 @@
 // webpack.config.js
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 
 const mode = process.env.NODE_ENV || 'development';
 const prod = mode === 'production';
@@ -9,6 +11,11 @@ module.exports = {
     mode: mode,
     entry: {
         bundle: ['./src/main.js']
+    },
+    output: {
+        path: __dirname + '/public/build',
+        filename: '[name].js',
+        chunkFilename: '[name].[id].js'
     },
     resolve: {
         alias: {
@@ -51,10 +58,30 @@ module.exports = {
                 type: 'javascript/auto',
             },
             {
-                test: /\.css$/i,
-                use: ["style-loader", "css-loader"],
-            },
+                test: /\.css$/,
+                use: [
+                    /**
+                     * MiniCssExtractPlugin doesn't support HMR.
+                     * For developing, use 'style-loader' instead.
+                     * */
+                    prod ? MiniCssExtractPlugin.loader : 'style-loader', {
+                        loader: 'file-loader',
+                        options: { name: 'bundle.css', publicPath: '/build' }
+                    }
+                ]
+            }
         ]
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: '[name].css'
+        })
+    ],
+    devServer: {
+        hot: true,
+        contentBase: path.resolve(__dirname, 'public/build'),
+        publicPath: '/build',
+        historyApiFallback: true
     },
     devtool: prod ? false : 'source-map'
 }

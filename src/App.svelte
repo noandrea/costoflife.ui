@@ -1,6 +1,6 @@
 <script>
-  import Tailwindcss from "./Tailwindcss.svelte";
   import Calculator from "./Calculator.svelte";
+  import Tailwindcss from "./Tailwindcss.svelte";
 </script>
 
 <Tailwindcss />
