@@ -3,9 +3,10 @@ const path = require('path');
 
 const mode = process.env.NODE_ENV || 'development';
 const prod = mode === 'production';
-
 const sveltePreprocess = require('svelte-preprocess');
+
 module.exports = {
+    mode: mode,
     entry: {
         bundle: ['./src/main.js']
     },
@@ -16,6 +17,11 @@ module.exports = {
         extensions: ['.mjs', '.js', '.svelte', '.wasm'],
         mainFields: ['svelte', 'browser', 'module', 'main']
     },
+    // webpack 5
+    // experiments: {
+    //     syncWebAssembly: true,
+    //     asyncWebAssembly: true,
+    // },
     module: {
         rules: [
             {
@@ -38,6 +44,15 @@ module.exports = {
                         }),
                     }
                 }
+            },
+            {
+                test: /\.wasm$/,
+                loaders: ['base64-loader'],
+                type: 'javascript/auto',
+            },
+            {
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader"],
             },
         ]
     },
