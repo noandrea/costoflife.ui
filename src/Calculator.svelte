@@ -37,6 +37,7 @@
   <SvelteTypedJs
     strings={['Rent 923€ 1m12x #rent', 'Running shoes #clothing 69€ 2y', 'INTEC F010 #bike #transport 1900€ 10y', 'Mobile subscription 9.99€ 28d12x']}
     loop="true"
+    attr="placeholder"
     typeSpeed="4">
     <input
       bind:value={raw}
@@ -45,7 +46,8 @@
       name="record"
       class="w-full bg-gray-100 rounded border border-gray-300
       focus:border-col-blue text-base outline-none text-gray-700 py-1 px-3
-      leading-8 transition-colors duration-200 ease-in-out typing my-2" />
+      leading-8 transition-colors duration-200 ease-in-out typing my-2
+      text-center" />
   </SvelteTypedJs>
   <button
     class="inline-block p-2 text-center text-white transition bg-col-blue
