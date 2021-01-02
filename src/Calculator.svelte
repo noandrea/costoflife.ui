@@ -1,20 +1,30 @@
 <script>
   import { costoflife_per_diem } from "costoflife";
+  import SvelteTypedJs from "svelte-typed-js";
 
   // what is going on
   let raw = "";
   let perDiem = null;
 
+  function computeCostOfLife() {
+    // this is enter
+    // perDiem = costoflife_per_diem(raw);
+    const redirectURL = "https://dev.to/noandrea";
+    const x = raw;
+    // const pm = module.costoflife_per_diem(x);
+    perDiem = `Bummer, it is not yet ready, <a href="${redirectURL}" class="underline">here's why</a>
+    <br/><br/> 
+    Currently the CostOf.Life calculator is available only as a 
+    <a href="https://github.com/noandrea/costoflife-rs" class="underline"> command line program</a>
+    for linux, but it will be made available on this page as soon as possible.
+    `;
+  }
+
   function handleKeydown(event) {
     // console.log("Hello ", costoflife_greetings());
     if (event.keyCode == 13) {
       console.log("key pressed: ", raw);
-      // this is enter
-      // perDiem = costoflife_per_diem(raw);
-      const redirectURL = "https://dev.to/noandrea";
-      const x = raw;
-      // const pm = module.costoflife_per_diem(x);
-      perDiem = `Deeply sorry, it is not yet ready, <a href="${redirectURL}" class="underline">here's why</a>`;
+      computeCostOfLife();
       console.log("key pressed: ", pm);
     }
   }
@@ -22,24 +32,72 @@
 
 <svelte:window on:keydown={handleKeydown} />
 
-<div class="text-center">
-  <input
-    bind:value={raw}
-    type="text"
-    id="record"
-    name="record"
-    placeholder="Rent 923€ 1m12x #rent"
-    class="text-center w-max bg-gray-100 rounded border border-gray-300
-    focus:border-costoflife-light-blue text-base outline-none text-gray-700 py-1
-    px-3 leading-8 transition-colors duration-200 ease-in-out" />
+<div>
 
-  <div>
+  <SvelteTypedJs
+    strings={['Rent 923€ 1m12x #rent', 'Running shoes #clothing 69€ 2y', 'INTEC F010 #bike #transport 1900€ 10y', 'Mobile subscription 9.99€ 28d12x']}
+    loop="true"
+    typeSpeed="4">
+    <input
+      bind:value={raw}
+      type="text"
+      id="record"
+      name="record"
+      class="w-full bg-gray-100 rounded border border-gray-300
+      focus:border-col-blue text-base outline-none text-gray-700 py-1 px-3
+      leading-8 transition-colors duration-200 ease-in-out typing my-2" />
+  </SvelteTypedJs>
+  <button
+    class="inline-block p-2 text-center text-white transition bg-col-blue
+    rounded-md shadow ripple hover:shadow-lg hover:bg-costoflife-light-blue
+    focus:outline-none"
+    on:click|once={computeCostOfLife}>
+    <svg
+      class="w-10"
+      version="1.1"
+      id="Layer_1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      x="0px"
+      y="0px"
+      viewBox="0 0 291.764 291.764"
+      style="enable-background:new 0 0 291.764 291.764;"
+      xml:space="preserve">
+      <g>
+        <path
+          style="fill:#EAEDED;"
+          d="M36.47,0h218.824c10.066,0,18.235,8.169,18.235,18.235v255.294c0,10.066-8.169,18.235-18.235,18.235
+          H36.47c-10.066,0-18.235-8.169-18.235-18.235V18.235C18.234,8.16,26.404,0,36.47,0z" />
+        <path
+          style="fill:#D3D6D8;"
+          d="M45.587,27.353h200.588v63.824H45.587V27.353z" />
+        <path
+          style="fill:#B7BBBD;"
+          d="M191.47,45.588v27.353h36.471V45.588H191.47z
+          M218.823,63.824h-18.235v-9.118h18.235V63.824z" />
+        <path
+          style="fill:#49616E;"
+          d="M45.587,154.991h36.471V118.52H45.587V154.991z
+          M100.293,154.991h36.471V118.52h-36.471V154.991z
+          M154.999,118.529V155h36.471v-36.471H154.999z
+          M45.587,209.697h36.471v-36.461H45.587V209.697z
+          M100.293,209.697h36.471v-36.461 h-36.471V209.697z
+          M154.999,209.697h36.471v-36.461h-36.471V209.697z
+          M45.587,264.403h36.471v-36.471H45.587V264.403z
+          M100.293,264.403h36.471v-36.471h-36.471V264.403z
+          M154.999,264.403h36.471v-36.471h-36.471V264.403z" />
+        <path
+          style="fill:#E2574C;"
+          d="M209.705,118.529V155h36.471v-36.471H209.705z
+          M209.705,264.403h36.471v-91.167h-36.471V264.403z" />
+      </g>
+    </svg>
+
+  </button>
+
+  <p class="my-2">
     {#if perDiem}
-      <p class="text-lg">
-        {@html perDiem}
-      </p>
-    {:else}
-      <p>O_o</p>
+      {@html perDiem}
     {/if}
-  </div>
+  </p>
 </div>

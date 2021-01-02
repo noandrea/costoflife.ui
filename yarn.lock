@@ -5388,6 +5388,14 @@ svelte-preprocess@^4.6.1:
     detect-indent "^6.0.0"
     strip-indent "^3.0.0"
 
+svelte-typed-js@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/svelte-typed-js/-/svelte-typed-js-1.0.3.tgz#3cecb8407ae669ed59769276240f88818bf16d4f"
+  integrity sha512-WdKqhq2mbyVryNScrvf+PxQ3WMPi5EZYY20JTQ/MB/Z+6qNvxtt+JByFWQVsgouL+71MAW7z6/aoIQAgEMi3mA==
+  dependencies:
+    sirv-cli "^1.0.0"
+    typed.js "^2.0.11"
+
 svelte@^3.0.0:
   version "3.31.0"
   resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.31.0.tgz#13966e5f55b975bc86675469bb2c58dd0e558d97"
@@ -5595,6 +5603,11 @@ type-check@~0.3.2:
   integrity sha1-WITKtRLPHTVeP7eE8wgEsrUg23I=
   dependencies:
     prelude-ls "~1.1.2"
+
+typed.js@^2.0.11:
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/typed.js/-/typed.js-2.0.11.tgz#d298a91f959f11a3803bf48b841a6fadd29640d9"
+  integrity sha512-1ZORHalEyLob34q738mqmwp0pT6syMigB1SZuTItqdhovWBKFIt7I5uVALXAGQZCg2MCtihCt6uqkoqPJK+9iQ==
 
 typedarray@^0.0.6:
   version "0.0.6"

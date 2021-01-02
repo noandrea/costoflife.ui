@@ -23,6 +23,10 @@ module.exports = {
       colors: {
         'costoflife-blue': '#586736',
         'costoflife-light-blue': '#1DC7DA',
+        'col-red': "#f14136",
+        'col-pink': "#f7bba4",
+        'col-blue': "#053044",
+        'col-white': "#f8f0dc"
       }
     }
   }
