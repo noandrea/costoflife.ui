@@ -15,7 +15,7 @@
 
   function computeCostOfLife() {
     // this is enter
-    const redirectURL = "https://dev.to/noandrea/rust-wasm-tailwind-svelte";
+    const redirectURL = "https://dev.to/noandrea/rust-wasm-tailwind-svelte-2kgh";
     const x = raw;
     perDiem = `Bummer, it is not yet ready, <a href="${redirectURL}" class="underline">read the story.</a>
     <br/><br/> 

@@ -91,7 +91,7 @@
           <li>
             <a
               class=" hover:text-white-800"
-              href="https://dev.to/noandrea/rust-wasm-tailwind-svelte">
+              href="https://dev.to/noandrea/rust-wasm-tailwind-svelte-2kgh">
               Tech article
             </a>
           </li>
