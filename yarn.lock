@@ -1829,10 +1829,10 @@ cosmiconfig@^5.0.0:
     js-yaml "^3.13.1"
     parse-json "^4.0.0"
 
-costoflife@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/costoflife/-/costoflife-0.2.2.tgz#9dc8e841fbe4aa2539e8c1f1c251add4f2c6a35a"
-  integrity sha512-7tvAEt7DabEN+F3UHIQmKcZSH0jK9DDrzatPs1Lg08mpqGbugzHsyUtLnEROyQg4fG2wvltgva2xTR5wNRt+KA==
+costoflife@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/costoflife/-/costoflife-0.2.3.tgz#5cb5f20386577a61700ffc0b52618fbcf79454eb"
+  integrity sha512-XW0O3QXDH0LqJkBJxIqAsqECL8u67eZ7RrTTvTTIVSHUA8DieyaBJ06IYLSd4lMXFJu/6FzPqAzHiqIUSqfuew==
 
 create-ecdh@^4.0.0:
   version "4.0.4"

@@ -91,7 +91,7 @@
           <li>
             <a
               class=" hover:text-white-800"
-              href="https://dev.to/noandrea/rust-wasm-tailwind-svelte-50hj-temp-slug-8609489?preview=bf84dc534120135e9041328dc9f60347e0aee64e65d737d1adfeedadcb22a8612a3f9090b3efad89e9177f8cee214c30a0d36b82ed43713b73ba6d10">
+              href="https://dev.to/noandrea/rust-wasm-tailwind-svelte">
               Tech article
             </a>
           </li>

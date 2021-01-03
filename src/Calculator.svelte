@@ -1,22 +1,30 @@
 <script>
-  import { costoflife_per_diem } from "costoflife";
   import SvelteTypedJs from "svelte-typed-js";
-
+  
+  const prompts = [
+    "Rent 923€ 1m12x #rent 01012021",
+    "Running shoes #clothing 69€ 2y",
+    "Modern Steel Flash #bike #transport 1900€ 10y 210320",
+    "Mobile data 9.99€ 28d12x",
+    "Netflix 7.99€ 010121 1m12x #entertainment 100320"
+  ];
+  
   // what is going on
   let raw = "";
   let perDiem = null;
 
   function computeCostOfLife() {
     // this is enter
-    // perDiem = costoflife_per_diem(raw);
-    const redirectURL = "https://dev.to/noandrea";
+    const redirectURL = "https://dev.to/noandrea/rust-wasm-tailwind-svelte";
     const x = raw;
-    // const pm = module.costoflife_per_diem(x);
-    perDiem = `Bummer, it is not yet ready, <a href="${redirectURL}" class="underline">here's why</a>
+    perDiem = `Bummer, it is not yet ready, <a href="${redirectURL}" class="underline">read the story.</a>
     <br/><br/> 
     Currently the CostOf.Life calculator is available only as a 
-    <a href="https://github.com/noandrea/costoflife-rs" class="underline"> command line program</a>
-    for linux, but it will be made available on this page as soon as possible.
+    <a href="https://github.com/noandrea/costoflife-rs" class="underline"> command line program</a>, 
+    but it will be made available on this page as soon as possible. meanwhile...
+    <br/>
+    <br/>
+    <a href="https://asciinema.org/a/382419" target="_blank"><img src="https://asciinema.org/a/382419.svg" /></a>
     `;
   }
 
@@ -34,11 +42,7 @@
 
 <div>
 
-  <SvelteTypedJs
-    strings={['Rent 923€ 1m12x #rent', 'Running shoes #clothing 69€ 2y', 'INTEC F010 #bike #transport 1900€ 10y', 'Mobile subscription 9.99€ 28d12x']}
-    loop="true"
-    attr="placeholder"
-    typeSpeed="4">
+  <SvelteTypedJs strings={prompts} loop="true" attr="placeholder" typeSpeed="4">
     <input
       bind:value={raw}
       type="text"
