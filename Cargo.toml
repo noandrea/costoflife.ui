@@ -1,0 +1,17 @@
+[package]
+name = "costoflife-ui"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+authors = ["<no.andrea@gmail.com>"]
+publish = false # do not publish to any registry
+homepage = "https://thecostof.life/"
+repository = "https://github.com/noandrea/costoflife.ui"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+costoflife = "0.3.1"
+gloo-console = "0.2.1"
+js-sys = "0.3.57"
+yew = "0.19.3"
