@@ -10,14 +10,13 @@ module.exports = {
     // require('@tailwindcss/ui'),
     // other plugins here
   ],
-  purge: {
-    content: [
-      "./src/**/*.svelte",
-      "./public/index.html",
-      // may also want to include base index.html
-    ],
-    enabled: production // disable purge in dev
-  },
+  content: [
+    "./src/**/*.rs",
+    "./index.html",
+    "./src/**/*.html",
+    "./src/**/*.css",
+    // may also want to include base index.html
+  ],
   theme: {
     extend: {
       colors: {

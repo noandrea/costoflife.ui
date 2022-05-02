@@ -3,3 +3,8 @@
 dist
 .cache
 .DS_Store
+
+
+# Added by cargo
+
+/target
