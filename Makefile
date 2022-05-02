@@ -22,8 +22,8 @@ list:
 
 default: build
 
-build: 
-	cargo build
+build: build-web 
+	trunk build --release	
 
 build-dist:
 	@echo building release
