@@ -1,6 +1,7 @@
 use costoflife::TxRecord;
 use gloo_console as console;
 
+use std::str::FromStr;
 use wasm_bindgen::JsCast;
 use web_sys::{EventTarget, HtmlInputElement};
 use yew::{events::KeyboardEvent, html, Component, Context, Html};
@@ -34,7 +35,9 @@ impl Component for App {
                 self.input = v.clone();
 
                 match TxRecord::from_str(&v) {
-                        Ok(tx) => self.tx = format!("It will cost you {}€ for {} days, that is until {}. Current progress is {}", tx.per_diem(), tx.get_duration_days(), tx.get_ends_on(), tx.get_progress(&None)),
+                        Ok(tx) => self.tx = {
+                            format!("It will cost you {}€ for {} days, that is until {}. Current progress is {:.0}%", tx.per_diem(), tx.get_duration_days(), tx.get_ends_on(), 100_f32*tx.get_progress(None))
+                        },
                         Err(_) => self.tx = "I didn't get that!".to_string(),
                 };
                 true
@@ -86,58 +89,60 @@ impl Component for App {
                     </p>
                 </div>
                 <div class="rounded-lg px-12 py-12 bg-col-red mb-12 text-center">
-
-                    <input type="text" class="w-full bg-gray-100 rounded border border-gray-300
-                    focus:border-col-blue text-base outline-none text-gray-700 py-1 px-3
-                    leading-8 transition-colors duration-200 ease-in-out typing my-2
-                    text-center" value={self.input.clone()} {onkeypress} />
-                    <button
-                        class="mx-auto p-2 text-center text-white transition bg-col-blue
-                        rounded-md shadow ripple hover:shadow-lg hover:bg-costoflife-light-blue
-                        focus:outline-none"
-                    >
-                        <svg
-                        class="w-10"
-                        version="1.1"
-                        id="Layer_1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        x="0px"
-                        y="0px"
-                        viewBox="0 0 291.764 291.764"
-                        style="enable-background:new 0 0 291.764 291.764;"
+                    <p>
+                    {"This is the CostOf.Life calculator"}
+                    </p>
+                    <div class="my-4">
+                        <input type="text" class="w-full bg-gray-100 rounded border border-gray-300
+                        focus:border-col-blue text-base outline-none text-gray-700 py-1 px-3
+                        leading-8 transition-colors duration-200 ease-in-out typing my-2
+                        text-center" value={self.input.clone()} {onkeypress} data-examples='"Rent 923€ 1m12x #rent 01012021","Running shoes #clothing 69€ 2y","Modern Steel Flash #bike #transport 1900€ 10y 210320","Mobile data 9.99€ 28d12x","Netflix 7.99€ 010121 1m12x #entertainment 100320"'/>
+                        <button
+                            class="mx-auto p-2 text-center text-white transition bg-col-blue
+                            rounded-md shadow ripple hover:shadow-lg hover:bg-costoflife-light-blue
+                            focus:outline-none"
                         >
-                        <g>
-                            <path
-                            style="fill:#EAEDED;"
-                            d="M36.47,0h218.824c10.066,0,18.235,8.169,18.235,18.235v255.294c0,10.066-8.169,18.235-18.235,18.235
-                            H36.47c-10.066,0-18.235-8.169-18.235-18.235V18.235C18.234,8.16,26.404,0,36.47,0z" />
-                            <path
-                            style="fill:#D3D6D8;"
-                            d="M45.587,27.353h200.588v63.824H45.587V27.353z" />
-                            <path
-                            style="fill:#B7BBBD;"
-                            d="M191.47,45.588v27.353h36.471V45.588H191.47z
-                            M218.823,63.824h-18.235v-9.118h18.235V63.824z" />
-                            <path
-                            style="fill:#49616E;"
-                            d="M45.587,154.991h36.471V118.52H45.587V154.991z
-                            M100.293,154.991h36.471V118.52h-36.471V154.991z
-                            M154.999,118.529V155h36.471v-36.471H154.999z
-                            M45.587,209.697h36.471v-36.461H45.587V209.697z
-                            M100.293,209.697h36.471v-36.461 h-36.471V209.697z
-                            M154.999,209.697h36.471v-36.461h-36.471V209.697z
-                            M45.587,264.403h36.471v-36.471H45.587V264.403z
-                            M100.293,264.403h36.471v-36.471h-36.471V264.403z
-                            M154.999,264.403h36.471v-36.471h-36.471V264.403z" />
-                            <path
-                            style="fill:#E2574C;"
-                            d="M209.705,118.529V155h36.471v-36.471H209.705z
-                            M209.705,264.403h36.471v-91.167h-36.471V264.403z" />
-                        </g>
-                        </svg>
-
-                    </button>
-
+                            <svg
+                            class="w-10"
+                            version="1.1"
+                            id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg"
+                            x="0px"
+                            y="0px"
+                            viewBox="0 0 291.764 291.764"
+                            style="enable-background:new 0 0 291.764 291.764;"
+                            >
+                            <g>
+                                <path
+                                style="fill:#EAEDED;"
+                                d="M36.47,0h218.824c10.066,0,18.235,8.169,18.235,18.235v255.294c0,10.066-8.169,18.235-18.235,18.235
+                                H36.47c-10.066,0-18.235-8.169-18.235-18.235V18.235C18.234,8.16,26.404,0,36.47,0z" />
+                                <path
+                                style="fill:#D3D6D8;"
+                                d="M45.587,27.353h200.588v63.824H45.587V27.353z" />
+                                <path
+                                style="fill:#B7BBBD;"
+                                d="M191.47,45.588v27.353h36.471V45.588H191.47z
+                                M218.823,63.824h-18.235v-9.118h18.235V63.824z" />
+                                <path
+                                style="fill:#49616E;"
+                                d="M45.587,154.991h36.471V118.52H45.587V154.991z
+                                M100.293,154.991h36.471V118.52h-36.471V154.991z
+                                M154.999,118.529V155h36.471v-36.471H154.999z
+                                M45.587,209.697h36.471v-36.461H45.587V209.697z
+                                M100.293,209.697h36.471v-36.461 h-36.471V209.697z
+                                M154.999,209.697h36.471v-36.461h-36.471V209.697z
+                                M45.587,264.403h36.471v-36.471H45.587V264.403z
+                                M100.293,264.403h36.471v-36.471h-36.471V264.403z
+                                M154.999,264.403h36.471v-36.471h-36.471V264.403z" />
+                                <path
+                                style="fill:#E2574C;"
+                                d="M209.705,118.529V155h36.471v-36.471H209.705z
+                                M209.705,264.403h36.471v-91.167h-36.471V264.403z" />
+                            </g>
+                            </svg>
+                        </button>
+                    </div>
                     // Display the current value of the counter
                     <p class="counter">
                         {&self.tx}

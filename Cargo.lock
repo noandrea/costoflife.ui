@@ -176,9 +176,9 @@ checksum = "245097e9a4535ee1e3e3931fcfcd55a796a44c643e8596ff6566d68f09b87bbc"
 
 [[package]]
 name = "costoflife"
-version = "0.3.1"
+version = "0.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6de66074217a565d968a3330dca7ab495013187e9054c8cdf1bf4b2811aece8a"
+checksum = "504833bf7048ed423160d5785d19d8976032229139dbef096dba641c433f2447"
 dependencies = [
  "bigdecimal",
  "blake3",
