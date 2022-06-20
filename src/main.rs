@@ -96,7 +96,7 @@ impl Component for App {
                         <input type="text" class="w-full bg-gray-100 rounded border border-gray-300
                         focus:border-col-blue text-base outline-none text-gray-700 py-1 px-3
                         leading-8 transition-colors duration-200 ease-in-out typing my-2
-                        text-center" value={self.input.clone()} {onkeypress} data-examples='"Rent 923€ 1m12x #rent 01012021","Running shoes #clothing 69€ 2y","Modern Steel Flash #bike #transport 1900€ 10y 210320","Mobile data 9.99€ 28d12x","Netflix 7.99€ 010121 1m12x #entertainment 100320"'/>
+                        text-center" value={self.input.clone()} {onkeypress} />
                         <button
                             class="mx-auto p-2 text-center text-white transition bg-col-blue
                             rounded-md shadow ripple hover:shadow-lg hover:bg-costoflife-light-blue
